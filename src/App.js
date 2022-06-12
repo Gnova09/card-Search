@@ -1,17 +1,24 @@
 
 import {React, Component} from 'react';
 import './App.css';
-import {robots} from "./card/robots";
 import Card_list from './card/CardList';
+import Scroll from './scroll/Scroll';
 import Search from './Search/search';
 
 class App extends Component {
   constructor(){
     super()
     this.state = { //lo que puede cambiar y pasar a los componentes
-      robots: robots,
+      robots: [],
       searchfield: ''
     }
+  }
+  componentDidMount(){
+
+    fetch('https://jsonplaceholder.typicode.com/users')//hacemos el request del api
+  .then(response => response.json())
+  .then(users => this.setState({robots: users}))//asignamos a robots el objeto para crear los cards
+
   }
 
   onSearchChange = (event)=>{
@@ -23,13 +30,21 @@ class App extends Component {
       return robot.name.toLowerCase().includes(this.state.searchfield.toLowerCase()); //verificamos el array si incluye el valor del campo
     })
 
-    return (
-      <div className="App">
-        <h1 className="f1" >CARD SEARCH</h1>
-        <Search searchChange = {this.onSearchChange}/>
-        <Card_list robots = {Filtro}/>
-      </div>
-    );
+    if(this.state.robots.length === 0){
+      return <h1>Cargando...</h1>
+    }else{
+      return (
+        <div className="App">
+         <div className='header'> 
+            <h1 className="f1" >CARD SEARCH</h1>
+            <Search searchChange = {this.onSearchChange}/>
+          </div>
+          <Scroll>
+            <Card_list robots = {Filtro}/>
+          </Scroll>
+        </div>
+      );
+    }
   }  
 }
 export default App;
