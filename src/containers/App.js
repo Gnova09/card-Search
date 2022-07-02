@@ -1,7 +1,7 @@
 
 import {React, Component} from 'react';
 import './App.css';
-import Card_list from '../Components/card/CardList';
+import CardList from '../Components/card/CardList';
 import Scroll from '../Components/scroll/Scroll';
 import Search from '../Components/Search/search';
 
@@ -40,7 +40,7 @@ class App extends Component {
             <Search searchChange = {this.onSearchChange}/>
           </div>
           <Scroll>
-            <Card_list robots = {Filtro}/>
+            <CardList robots = {Filtro}/>
           </Scroll>
           <p>Developer by: <a href='https://github.com/Gnova09'>Gnova09</a></p>
         </div>

@@ -1,8 +1,6 @@
 import React from "react";
 
-const Card_list = () =>{
-    
-}
+
 const Card = ({id, name, email})=>{
    
     return(
@@ -16,4 +14,4 @@ const Card = ({id, name, email})=>{
 
     );
 }
-export default Card;
+export default Card; 
