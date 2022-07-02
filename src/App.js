@@ -42,7 +42,9 @@ class App extends Component {
           <Scroll>
             <Card_list robots = {Filtro}/>
           </Scroll>
+          <p>Developer by: <a href='https://github.com/Gnova09'>Gnova09</a></p>
         </div>
+       
       );
     }
   }  
