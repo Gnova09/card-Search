@@ -5,8 +5,6 @@ import CardList from '../Components/card/CardList';
 import Scroll from '../Components/scroll/Scroll';
 import Search from '../Components/Search/search';
 
-
-  
 function App () {
  /*  constructor(){
     super()
@@ -20,8 +18,6 @@ function App () {
   const [robots, setRobots] = useState([]);
   const [searchfield,setSearchfield] = useState("");
 
-
-  
   /* componentDidMount(){
 
     fetch('https://jsonplaceholder.typicode.com/users')//hacemos el request del api
@@ -39,20 +35,19 @@ function App () {
 
   },[])
   
-
   const onSearchChange = (event)=>{
     /* this.setState({searchfield: event.target.value}) */
     setSearchfield(event.target.value)
   }
 
-  
     const Filtro = robots.filter(robot =>{
       return robot.name.toLowerCase().includes(searchfield.toLowerCase()); //verificamos el array si incluye el valor del campo
     });
 
     if(robots.length === 0){
       return <h1>Cargando...</h1>
-    }else{
+    }
+    else{
       return (
         <div className="App">
          <div className='header'> 
